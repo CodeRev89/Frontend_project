@@ -2,6 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:travel_app/pages/settings.dart';
+import 'package:travel_app/pages/signup.dart';
+import 'package:travel_app/pages/welcomepage.dart';
+import 'package:travel_app/pages/loginpage.dart';
+import 'package:travel_app/pages/settings.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,57 +15,31 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-    );
+    return MaterialApp.router(
+        routeInformationProvider: _router.routeInformationProvider,
+        routeInformationParser: _router.routeInformationParser,
+        routerDelegate: _router.routerDelegate,
+      );
   }
-}
 
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text('Travel App'), centerTitle: true,
-        backgroundColor: Colors.blueAccent, // keep here until further changes
+  final _router = GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => HomeScreen(), // default page
       ),
-      body: Row(mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Column(mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                "assets/images/applogo.png",
-                width: 30,
-                height: 30,
-              ),
-            ],
-          ),
-        ],
+      GoRoute(
+        path: '/signup',
+        builder: (context, state) => SignupPage(),
       ),
-      drawer: Drawer( child: ListView(
-        
-        children: [
-          ListTile(
-            leading: Icon(Icons.mode),
-            title: Text('Register'),
-            onTap: () {GoRouter.of(context).push('/signup');},
-            
-          ),
-          ListTile(
-            leading: Icon(Icons.login_outlined),
-            title: Text('Login'),
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-          ),
-        ],
-      )),
-    );
-
-      
-    
-  }
+        GoRoute(
+        path: '/loginpage',
+        builder: (context, state) => SigninPage(),
+      ),
+        GoRoute(
+        path: '/settings',
+        builder: (context, state) => settingPage(),
+      ),
+    ],
+  );
 }
