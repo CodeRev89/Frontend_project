@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:travel_app/pages/contact.dart';
+
 import 'package:travel_app/pages/settings.dart';
 import 'package:travel_app/pages/signup.dart';
 import 'package:travel_app/pages/welcomepage.dart';
@@ -59,6 +61,10 @@ class MyApp extends StatelessWidget {
         GoRoute(
         path: '/settings',
         builder: (context, state) => settingPage(),
+      ),
+       GoRoute(
+        path: '/contact',
+        builder: (context, state) => Contact(),
       ),
     ],
   );

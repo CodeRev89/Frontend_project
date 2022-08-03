@@ -49,6 +49,11 @@ class HomeScreen extends StatelessWidget {
             title: Text('Settings'),
             onTap: () {GoRouter.of(context).push("/settings");},
           ),
+          ListTile(
+            leading: Icon(Icons.help),
+            title: Text('contact us'),
+            onTap: () {GoRouter.of(context).push("/contact");},
+          ),
         ],
       )),
     );
