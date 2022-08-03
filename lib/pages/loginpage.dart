@@ -29,7 +29,7 @@ class SigninPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {print(usernameController); print(passwordController);},
                 child: const Text("log in"),
               ),
             )

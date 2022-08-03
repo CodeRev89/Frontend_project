@@ -11,6 +11,9 @@ class HomeScreen extends StatelessWidget {
         title: Text('Welcome'), centerTitle: true,
         backgroundColor: Colors.blueAccent, // keep here until further changes
       ),
+
+      
+      
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

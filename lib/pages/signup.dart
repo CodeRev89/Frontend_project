@@ -21,8 +21,8 @@ class SignupPage extends StatelessWidget {
             const Text("register"),
             TextField(
               decoration: const InputDecoration(hintText: 'Username'),
-              controller: usernameController,
-            ),
+              controller: usernameController, 
+            ), 
             TextField(
               decoration: const InputDecoration(hintText: 'Password'),
               controller: passwordController,
@@ -31,7 +31,7 @@ class SignupPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {print(usernameController); print(passwordController);},
                 child: const Text("register"),
               ),
             )
