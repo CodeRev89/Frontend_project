@@ -10,7 +10,7 @@ class Contact extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 13, 9, 66),
+        backgroundColor: Color.fromARGB(183, 0, 0, 0),
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
