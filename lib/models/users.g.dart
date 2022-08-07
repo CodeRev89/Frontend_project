@@ -9,7 +9,7 @@ part of 'users.dart';
 Users _$UsersFromJson(Map<String, dynamic> json) => Users(
       id: json['id'] as int?,
       userName: json['userName'] as String,
-      passWord: json['passWord'] as int,
+      passWord: json['passWord'] as String,
     );
 
 Map<String, dynamic> _$UsersToJson(Users instance) => <String, dynamic>{

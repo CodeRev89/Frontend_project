@@ -1,5 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:travel_app/models/users.dart';
+
+import '../providers/authProvider.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({Key? key}) : super(key: key);
@@ -7,11 +11,9 @@ class SignupPage extends StatelessWidget {
   final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    
-    
     return Scaffold(
       appBar: AppBar(
-        title: const Text("register"),
+        title: const Text("register"), centerTitle: true,
       ),
       resizeToAvoidBottomInset: false,
       body: Padding(
@@ -21,8 +23,8 @@ class SignupPage extends StatelessWidget {
             const Text("register"),
             TextField(
               decoration: const InputDecoration(hintText: 'Username'),
-              controller: usernameController, 
-            ), 
+              controller: usernameController,
+            ),
             TextField(
               decoration: const InputDecoration(hintText: 'Password'),
               controller: passwordController,
@@ -31,15 +33,17 @@ class SignupPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () {print(usernameController); print(passwordController);},
+                onPressed: () {
+                  context.read<AuthProvider>().signup(Users(
+                      userName: usernameController.text,
+                      passWord: passwordController.text));
+                },
                 child: const Text("register"),
               ),
             )
           ],
         ),
       ),
-   
     );
   }
-  
 }

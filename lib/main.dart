@@ -4,17 +4,26 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/pages/contact.dart';
+import 'package:travel_app/pages/profile.dart';
 
 import 'package:travel_app/pages/settings.dart';
 import 'package:travel_app/pages/signup.dart';
 import 'package:travel_app/pages/welcomepage.dart';
 import 'package:travel_app/pages/loginpage.dart';
 import 'package:travel_app/pages/settings.dart';
+import 'package:travel_app/providers/authProvider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        //ChangeNotifierProvider<UsersProvider>(create: (_) => UsersProvider()),
+        ChangeNotifierProvider<AuthProvider>(create: (_) => AuthProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,20 +31,12 @@ class MyApp extends StatelessWidget {
         routeInformationProvider: _router.routeInformationProvider,
         routeInformationParser: _router.routeInformationParser,
         routerDelegate: _router.routerDelegate,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primaryColor: Colors.blue.shade300),
       );
   }
 
-// void main() {
-//   runApp(
-//     MultiProvider(
-//       providers: [
-//         ChangeNotifierProvider<SignupPage>(create: (_) => SigninPage()),
-        
-//       ],
-//       child: MyApp(),
-//     ),
-//   );
-// }
+
 
 
 

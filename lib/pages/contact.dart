@@ -10,6 +10,7 @@ class Contact extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(title: Text("contact us") , centerTitle: true, backgroundColor: Colors.black,),
         backgroundColor: Color.fromARGB(183, 0, 0, 0),
         body: SafeArea(
           child: Column(
@@ -46,36 +47,36 @@ class Contact extends StatelessWidget {
                 ),
               ),
               InkWell(
-                child: Card(
-                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.phone,
-                      color: Colors.teal,
-                    ),
-                    title: Text(
-                      '+965-66033357',
-                      style: TextStyle(
-                          fontFamily: 'SourceSansPro',
-                          fontSize: 20,
-                          color: Colors.teal.shade900),
+                  child: Card(
+                    margin:
+                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.phone,
+                        color: Colors.teal,
+                      ),
+                      title: Text(
+                        '+965-66033357',
+                        style: TextStyle(
+                            fontFamily: 'SourceSansPro',
+                            fontSize: 20,
+                            color: Colors.teal.shade900),
+                      ),
                     ),
                   ),
-
-                ),
-                onTap: (){
-                  _launchURL('tel:+965-66033357');
-                }
-              ),
+                  onTap: () {
+                    _launchURL('tel:+965-66033357');
+                  }),
               InkWell(
                 child: Card(
-                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                  margin:
+                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
                   child: ListTile(
                     leading: Icon(
                       Icons.email,
                       color: Colors.teal,
                     ),
-                    title:Text(
+                    title: Text(
                       'ksa.xo1999@gmail.com',
                       style: TextStyle(
                           fontFamily: 'SourceSansPro',
@@ -84,8 +85,9 @@ class Contact extends StatelessWidget {
                     ),
                   ),
                 ),
-                onTap: (){
-                  _launchURL('mailto:ksa.xo1999@gmail.com?subject=Need Flutter developer&body=Please contact me');
+                onTap: () {
+                  _launchURL(
+                      'mailto:ksa.xo1999@gmail.com?subject=Need Flutter developer&body=Please contact me');
                 },
               ),
             ],
@@ -96,7 +98,6 @@ class Contact extends StatelessWidget {
   }
 }
 
-
 _launchURL(var url) async {
   if (await canLaunch(url)) {
     await launch(url);
@@ -104,4 +105,3 @@ _launchURL(var url) async {
     throw 'Could not launch $url';
   }
 }
-

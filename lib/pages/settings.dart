@@ -7,6 +7,6 @@ class settingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: const Text("under processing")),);
+    return Scaffold(appBar: AppBar(title: const Text("under processing"), centerTitle: true),);
   }
 }
